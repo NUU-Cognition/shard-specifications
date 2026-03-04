@@ -1,0 +1,14 @@
+shard-spec: "0.1.0"
+version: "0.1.0"
+name: Specifications
+shorthand: spec
+description: Create and manage detailed specifications as folder-based, versioned artifacts
+depends:
+  - NUU-Cognition/shard-flint
+install:
+  - source: (Dashboard) Specs.md
+    dest: Mesh/(Dashboard) Specs.md
+    once: true
+folders:
+  - Mesh/Specs/
+  - Mesh/Archive/Specs/
