@@ -1,6 +1,6 @@
 # Knowledge: Specification Writing Conventions
 
-Reference for writing clear, precise specifications in Flint. Covers RFC 2119 requirement language, normative vs. informative content, and structural patterns.
+Reference for writing clear, precise specifications in Flint. Covers RFC 2119 requirement language, normative vs. informative content, structural patterns, and testing.
 
 ## RFC 2119 Keywords
 
@@ -23,7 +23,7 @@ Every section of a spec is either **normative** (binding) or **informative** (ad
 | Type | Purpose | Keywords | Examples |
 |------|---------|----------|---------|
 | **Normative** | Defines requirements that implementations MUST follow | Uses RFC 2119 keywords | Specification body, schemas, algorithms |
-| **Informative** | Provides context, examples, rationale — not binding | No RFC 2119 keywords | Abstract, examples, rationale notes, appendices |
+| **Informative** | Provides context, examples, rationale — not binding | No RFC 2119 keywords | Abstract, Scope, examples, rationale notes |
 
 ### Marking Informative Content
 
@@ -39,13 +39,13 @@ Use blockquotes with a label for informative notes within normative sections:
 
 Every spec follows this layered structure:
 
-1. **Frontmatter** — Metadata (id, tags, status, version, relationships)
+1. **Frontmatter** — Metadata (id, tags, status, increment, tasks, relationships)
 2. **Abstract** — What this spec defines and why (informative)
 3. **Scope** — What is and is not covered (informative)
 4. **Terminology** — Domain-specific terms (normative definitions)
 5. **Specification** — The normative body (MUST/SHOULD/MAY language)
-6. **References** — Normative (required) and Informative (supplementary)
-7. **Changelog** — Version history
+6. **Testing** — Acceptance criteria and verification (how to confirm implementation)
+7. **References** — Normative (required) and Informative (supplementary)
 
 ### Writing the Abstract
 
@@ -66,17 +66,15 @@ Every spec follows this layered structure:
 - Use code blocks for formats, schemas, examples
 - One topic per heading — if a heading covers two things, split it
 
-## Versioning
+### Writing the Testing Section
 
-Specs use semantic versioning in frontmatter:
+The Testing section defines how to verify the spec has been correctly implemented. It pairs with the tasks that execute the spec.
 
-| Change Type | Version Bump | Example |
-|------------|-------------|---------|
-| Clarification, typo, editorial | Patch (1.0.0 → 1.0.1) | Fixed ambiguous wording |
-| New section, expanded scope | Minor (1.0.0 → 1.1.0) | Added error handling section |
-| Breaking normative change | Major (1.0.0 → 2.0.0) | Changed required field name |
-
-The changelog in the spec body tracks all version bumps.
+- Write testable acceptance criteria as checkboxes
+- Each criterion should be verifiable — someone can look at the implementation and say yes/no
+- Cover the critical requirements from the Specification section
+- Include edge cases and error conditions where relevant
+- These checkboxes get ticked as tasks complete implementation
 
 ## Cross-Referencing
 
@@ -90,7 +88,7 @@ See [[(Spec) Shard Protocol . Wire Format]] for message format details.
 
 ### Between Specs
 
-Use the `depends-on:` frontmatter field for normative dependencies:
+Use the `depends-on:` frontmatter field for specs that must be implemented before this one:
 
 ```yaml
 depends-on:
@@ -98,6 +96,16 @@ depends-on:
 ```
 
 Use inline wikilinks for informative references.
+
+### To Tasks
+
+As tasks are created against a spec, append them to the `tasks:` frontmatter field:
+
+```yaml
+tasks:
+  - "[[(Task) 282 Specifications Shard Polish]]"
+  - "[[(Task) 283 Implement Wire Format]]"
+```
 
 ## Common Patterns
 
@@ -140,3 +148,15 @@ Every message MUST contain a `type` field as the first property.
 Messages SHOULD include a `timestamp` field with ISO 8601 format.
 Receivers MUST ignore unknown fields (forward compatibility).
 ```
+
+## Anti-Patterns
+
+Things to avoid when writing specs:
+
+| Anti-Pattern | Problem | Fix |
+|-------------|---------|-----|
+| Vague requirements | "The system should be fast" — not testable | Quantify: "Response time MUST be under 200ms" |
+| Missing boundary | No Scope section — unclear what's in/out | Always write Scope with explicit exclusions |
+| MUST everything | Over-constraining leaves no room for implementation | Reserve MUST for true invariants, use SHOULD for recommendations |
+| Spec as tutorial | Mixing how-to guidance with normative requirements | Keep tutorials in Guides, specs define *what*, not *how to use* |
+| Untestable criteria | Testing section says "works correctly" | Each criterion must be independently verifiable |

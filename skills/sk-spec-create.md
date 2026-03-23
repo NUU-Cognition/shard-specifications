@@ -8,6 +8,7 @@ Create a new specification folder and root file.
 
 - Spec name (descriptive title)
 - Subtype (architecture, protocol, schema, api, process, requirements, convention)
+- Increment (parent increment for this spec)
 - (Optional) Brief description of what the spec will define
 
 # Actions
@@ -17,11 +18,11 @@ Create a new specification folder and root file.
    - Folder: `Mesh/Specs/(Spec) [Name]/`
    - File: `(Spec) [Name].md`
    - Status: `draft`
-   - Version: `"1.0.0"`
    - Tag: `#spec/[subtype]`
+   - `increment:` linking to the parent increment
    - `uses-rfc2119: true` (default)
 3. Fill in the Abstract and Scope sections based on the provided description
-4. Leave the Specification section with a placeholder for the author to fill
+4. Leave the Specification and Testing sections with placeholders for the author to fill
 
 # Output
 

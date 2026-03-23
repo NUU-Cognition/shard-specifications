@@ -1,8 +1,7 @@
 # Filename: Mesh/Specs/(Spec) [Parent Name]/(Spec) [Parent Name] . [Section Name].md
 
 /* Sub-spec / section file. Lives inside the parent spec's folder.
-   Uses dot notation in filename: (Spec) Parent . Section.md
-   Inherits the parent spec's version unless independently versioned. */
+   Uses dot notation in filename: (Spec) Parent . Section.md */
 
 ```markdown
 ---
@@ -10,11 +9,13 @@ id: [generate-uuid4]
 tags:
   - "#spec/spec"
   - "#spec/[architecture|protocol|schema|api|process|requirements|convention]"
-status: [draft|proposed|ratified|stable|amended|deprecated|superseded]
+status: [draft|approved|implemented]
 parent: "[[(Spec) Parent Name]]"
 uses-rfc2119: [true|false]
 [agent]-sessions:
 template: "[[tmp-spec-section-v0.1]]"
+authors: /* from .flint/identity.json; omit if no identity set */
+  - "[[@Person Name]]"
 ---
 
 # [Section Name]
@@ -32,6 +33,13 @@ template: "[[tmp-spec-section-v0.1]]"
 /* The normative body for this section. Use RFC 2119 keywords for requirement levels. */
 
 [Detailed specification content. Use headings, tables, code blocks, and diagrams as appropriate.]
+
+## Testing
+
+/* How to verify this section has been correctly implemented. */
+
+- [ ] [Specific testable criterion]
+- (continue)
 
 ## References
 

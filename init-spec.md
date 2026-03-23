@@ -1,12 +1,31 @@
 # Specifications
 
-Create and manage detailed specifications — prescriptive, normative documents that define how things work or should work. Specs are the source of truth that persists alongside the systems they describe.
+Create and execute detailed specifications — prescriptive design documents that define how systems should be built. A spec is written once, approved, and then implemented via tasks.
 
 ## What Is a Specification
 
-A specification is a **normative document** — it defines constraints, interfaces, behavior, and conventions. Unlike plans (consumed by execution) or reports (descriptive, retrospective), specs are **consumed by reference**. They stay active as long as the system they describe exists.
+A specification is a **one-shot design document**. It defines constraints, interfaces, behavior, and conventions for a system that needs to be built. Unlike plans (high-level direction) or reports (retrospective), specs are **precise and normative** — they use RFC 2119 language (MUST, SHOULD, MAY) to express exact requirement levels.
 
-Specs use RFC 2119 language (MUST, SHOULD, MAY) for precise requirement levels. See [[knw-spec-conventions]] for writing conventions.
+Specs are like sophisticated plans: you write them, approve the design, then execute them through tasks. Once implemented, the spec is complete — it doesn't get amended or versioned. If the system changes significantly later, write a new spec.
+
+### When to Use a Spec
+
+| Use a Spec when... | Use something else when... |
+|---------------------|--------------------------|
+| You need to define precise requirements (MUST/SHOULD/MAY) | You need to brainstorm → use a **Notepad** |
+| The system has multiple components that need coordinated design | You need high-level direction → use a **Plan** |
+| Multiple agents or humans will implement different parts | You need to record findings → use a **Report** |
+| You want a reference document during implementation | You need to track a single unit of work → use a **Task** |
+
+### Spec → Task Flow
+
+Specs don't exist in isolation — they drive tasks. The typical flow:
+
+1. **Brainstorm** in a Notepad to explore the design space
+2. **Write the spec** to formalize the design (this shard)
+3. **Create tasks** from the spec's requirements (Projects shard)
+4. **Implement** the tasks, referring back to the spec
+5. Spec reaches `implemented` when all tasks are done
 
 ## Structure
 
@@ -31,27 +50,47 @@ Mesh/Specs/
 - Root specs list children in `children:` frontmatter
 - Sub-specs link back via `parent:` frontmatter
 
+### When to Split Into Sections
+
+- Split when a section would exceed ~200 lines of normative content
+- Split when different people/agents will implement different parts
+- Split when sections have distinct testing criteria
+- Keep it as one file if the spec is focused and under ~300 lines total
+
 ## Lifecycle
 
 ```
-draft → proposed → ratified → stable
-                                 ↓
-                          amended → ratified (cycle)
-                                 ↓
-                            deprecated
-                                 ↓
-                            superseded
+draft → approved → implemented
 ```
 
 | Status | Meaning |
 |--------|---------|
-| `draft` | Being written, not yet normative |
-| `proposed` | Ready for review, seeking consensus |
-| `ratified` | Accepted as source of truth |
-| `stable` | Proven through use, unlikely to change |
-| `amended` | Active revision of a ratified spec |
-| `deprecated` | Should not guide new work |
-| `superseded` | Replaced by another spec |
+| `draft` | Being written, design not yet accepted |
+| `approved` | Design accepted, ready for task creation and implementation |
+| `implemented` | All tasks complete, spec is realized in code |
+
+### Transitions
+
+- **draft → approved**: The spec has been reviewed and the design is accepted. This is the point where tasks get created against the spec.
+- **approved → implemented**: All linked tasks are done. The spec's requirements are realized in the codebase.
+
+A spec does not get amended. If the system changes significantly, write a new spec.
+
+## Linkage
+
+Specs connect to the broader workspace through frontmatter fields:
+
+```yaml
+increment: "[[(Increment) 6.10 - Shard Improvements]]"
+tasks:
+  - "[[(Task) 282 Specifications Shard Polish]]"
+depends-on:
+  - "[[(Spec) NUU CLI Infrastructure]]"
+```
+
+- **`increment:`** — which increment this spec belongs to
+- **`tasks:`** — tasks that implement this spec (appended as tasks are created)
+- **`depends-on:`** — other specs this one requires (for ordering implementation)
 
 ## Spec Subtypes
 
@@ -79,14 +118,13 @@ Subtypes are expressed as tags. Common subtypes:
 |-------|------|---------|
 | Create Spec | `sk-spec-create.md` | Create a new specification folder and root file |
 | Add Section | `sk-spec-add_section.md` | Add a sub-spec to an existing specification |
-| Archive Spec | `sk-spec-archive.md` | Archive a superseded specification |
+| Archive Spec | `sk-spec-archive.md` | Archive a completed or obsolete specification |
 
 ## Workflows
 
 | Workflow | File | Purpose |
 |----------|------|---------|
-| Start Spec | `wkfl-spec-start.md` | Start a new specification with design review |
-| Amend Spec | `wkfl-spec-amend.md` | Amend a ratified specification |
+| Start Spec | `wkfl-spec-start.md` | Design and create a new specification with review |
 
 ## Templates
 

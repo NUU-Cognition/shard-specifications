@@ -8,7 +8,7 @@ Design and create a new specification with initial sections.
 
 - Topic or system to specify
 - (Optional) Known sections or subtypes needed
-- (Optional) Existing documents to draw from
+- (Optional) Existing documents to draw from (notepads, reports, OrbCode maps)
 
 # Actions
 
@@ -18,20 +18,22 @@ Design and create a new specification with initial sections.
    - What system, protocol, or concept is being specified?
    - What subtype fits best? (architecture, protocol, schema, api, process, requirements, convention)
    - What sections will the spec need?
-2. If existing documents cover this topic (notes, reports, OrbCode maps), gather them for context
+2. If existing documents cover this topic (notepads, reports, OrbCode maps), gather them for context
 3. Present the proposed structure to the user:
    - Root spec name and subtype
    - Planned sections (sub-specs)
    - Key dependencies or related specs
+   - Which increment this belongs to
 4. Once the user confirms the design, progress to the next stage
 
 ## Stage 2: Create
 
 1. Use [[sk-spec-create]] to create the root spec folder and file
-2. Write the Abstract and Scope sections based on the design discussion
-3. For each planned section, use [[sk-spec-add_section]] to create sub-spec files
-4. Write initial content for each section drawing from gathered context
-5. Once all files are created, progress to the next stage
+2. Write the Abstract, Scope, and Specification sections based on the design discussion
+3. Write the Testing section with acceptance criteria
+4. For each planned section, use [[sk-spec-add_section]] to create sub-spec files
+5. Write initial content for each section drawing from gathered context
+6. Once all files are created, progress to the next stage
 
 ## Stage 3: Review
 
@@ -44,14 +46,14 @@ Design and create a new specification with initial sections.
 4. Apply revisions as requested
 5. Once the user is satisfied, progress to the next stage
 
-## Stage 4: Propose
+## Stage 4: Approve
 
-1. Set the root spec status to `proposed` (ready for formal review)
-2. Set all section statuses to `proposed`
+1. Set the root spec status to `approved`
+2. Set all section statuses to `approved`
 3. Update session tracking
-4. Inform the user the spec is now in `proposed` state and ready for ratification
+4. Inform the user the spec is now `approved` and ready for task creation
 
 # Output
 
-- Complete specification with root and sections in `proposed` status
-- Ready for ratification after review
+- Complete specification with root and sections in `approved` status
+- Ready for tasks to be created against it

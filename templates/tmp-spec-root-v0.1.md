@@ -10,15 +10,16 @@ id: [generate-uuid4]
 tags:
   - "#spec/spec"
   - "#spec/[architecture|protocol|schema|api|process|requirements|convention]"
-status: [draft|proposed|ratified|stable|amended|deprecated|superseded]
-version: "1.0.0"
-children:
-supersedes:
-superseded-by:
+status: [draft|approved|implemented]
+increment: [[parent increment hyperlink]]
+tasks:
 depends-on:
+children:
 uses-rfc2119: [true|false]
 [agent]-sessions:
 template: "[[tmp-spec-root-v0.1]]"
+authors: /* from .flint/identity.json; omit if no identity set */
+  - "[[@Person Name]]"
 ---
 
 # [Spec Name]
@@ -29,7 +30,8 @@ template: "[[tmp-spec-root-v0.1]]"
 ## Abstract
 
 [1-3 paragraph overview of what this specification defines, its scope, and its purpose.
- This should answer: what system/protocol/format does this spec describe, and why does it exist?]
+ This should answer: what system/protocol/format does this spec describe, and why does it exist?
+ The abstract is informative — no MUST/SHOULD/MAY language here.]
 
 ## Scope
 
@@ -37,7 +39,7 @@ template: "[[tmp-spec-root-v0.1]]"
 
 ## Terminology
 
-/* Include this section if the spec introduces domain-specific terms */
+/* Include this section if the spec introduces domain-specific terms. Remove if not needed. */
 
 | Term | Definition |
 |------|-----------|
@@ -51,6 +53,20 @@ template: "[[tmp-spec-root-v0.1]]"
    and links to sub-specs for details. For standalone root specs, this contains the full spec. */
 
 [Specification content organized by topic. Use headings, tables, code blocks, and diagrams as needed.]
+
+/* Optional: include a Design Principles subsection if the spec benefits from stating
+   the guiding philosophy behind its design decisions. This is informative content. */
+
+## Testing
+
+/* How to verify this spec has been correctly implemented. Define acceptance criteria,
+   test cases, and edge cases. This section pairs with the tasks that implement the spec —
+   the spec says what to verify, the tasks say who does the verifying. */
+
+[Acceptance criteria and verification approach. What must be true when implementation is complete?]
+
+- [ ] [Specific testable criterion]
+- (continue)
 
 ## Sections
 
@@ -74,11 +90,4 @@ template: "[[tmp-spec-root-v0.1]]"
 
 - [[supplementary reference(s)]]
 - (continue)
-
-## Changelog
-
-| Version | Date | Summary |
-|---------|------|---------|
-| 1.0.0 | [ISO 8601 date] | [Initial specification] |
-| (continue) |
 ```
