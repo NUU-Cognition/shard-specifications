@@ -116,25 +116,25 @@ Subtypes are expressed as tags. Common subtypes:
 
 | Skill | File | Purpose |
 |-------|------|---------|
-| Create Spec | `sk-spec-create.md` | Create a new specification folder and root file |
-| Add Section | `sk-spec-add_section.md` | Add a sub-spec to an existing specification |
-| Archive Spec | `sk-spec-archive.md` | Archive a completed or obsolete specification |
+| Create Spec | `dev-sk-spec-create.md` | Create a new specification folder and root file |
+| Add Section | `dev-sk-spec-add_section.md` | Add a sub-spec to an existing specification |
+| Archive Spec | `dev-sk-spec-archive.md` | Archive a completed or obsolete specification |
 
 ## Workflows
 
 | Workflow | File | Purpose |
 |----------|------|---------|
-| Start Spec | `wkfl-spec-start.md` | Design and create a new specification with review |
+| Start Spec | `dev-wkfl-spec-start.md` | Design and create a new specification with review |
 
 ## Templates
 
 | Template | File | Purpose |
 |----------|------|---------|
-| Root Spec | `tmp-spec-root-v0.1.md` | Root specification file (index + overview) |
-| Section | `tmp-spec-section-v0.1.md` | Sub-spec / section file |
+| Root Spec | `dev-tmp-spec-root-v0.1.md` | Root specification file (index + overview) |
+| Section | `dev-tmp-spec-section-v0.1.md` | Sub-spec / section file |
 
 ## Knowledge
 
 | Knowledge | File | Topic |
 |-----------|------|-------|
-| Conventions | `knw-spec-conventions.md` | Specification writing conventions and RFC 2119 |
+| Conventions | `dev-knw-spec-conventions.md` | Specification writing conventions and RFC 2119 |

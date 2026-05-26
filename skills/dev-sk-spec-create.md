@@ -1,4 +1,6 @@
-This skill belongs to the Specifications shard. Ensure you have [[init-spec]] in context before continuing.
+> [!important] THIS FILE IS AN INSTRUCTION. WHEN REFERENCED IT IS MEANT TO BE TAKEN AS AN ACTION.
+
+This skill belongs to the Specifications shard. Ensure you have [[dev-init-spec]] in context before continuing.
 
 # Skill: Create Spec
 
@@ -14,7 +16,7 @@ Create a new specification folder and root file.
 # Actions
 
 1. Create the spec folder at `Mesh/Specs/(Spec) [Name]/`
-2. Create the root spec file using [[tmp-spec-root-v0.1]] with:
+2. Create the root spec file using [[dev-tmp-spec-root-v0.1]] with:
    - Folder: `Mesh/Specs/(Spec) [Name]/`
    - File: `(Spec) [Name].md`
    - Status: `draft`
@@ -27,4 +29,4 @@ Create a new specification folder and root file.
 # Output
 
 - New spec folder with root file in `draft` status
-- Ready for content to be added via [[sk-spec-add_section]] or direct editing
+- Ready for content to be added via [[dev-sk-spec-add_section]] or direct editing

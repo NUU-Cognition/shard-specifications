@@ -1,4 +1,6 @@
-This skill belongs to the Specifications shard. Ensure you have [[init-spec]] in context before continuing.
+> [!important] THIS FILE IS AN INSTRUCTION. WHEN REFERENCED IT IS MEANT TO BE TAKEN AS AN ACTION.
+
+This skill belongs to the Specifications shard. Ensure you have [[dev-init-spec]] in context before continuing.
 
 # Skill: Archive Spec
 

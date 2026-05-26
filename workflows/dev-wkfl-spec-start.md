@@ -1,4 +1,6 @@
-This workflow belongs to the Specifications shard. Ensure you have [[init-spec]] in context before continuing.
+> [!important] THIS FILE IS AN INSTRUCTION. WHEN REFERENCED IT IS MEANT TO BE TAKEN AS AN ACTION.
+
+This workflow belongs to the Specifications shard. Ensure you have [[dev-init-spec]] in context before continuing.
 
 # Workflow: Start Spec
 
@@ -28,10 +30,10 @@ Design and create a new specification with initial sections.
 
 ## Stage 2: Create
 
-1. Use [[sk-spec-create]] to create the root spec folder and file
+1. Use [[dev-sk-spec-create]] to create the root spec folder and file
 2. Write the Abstract, Scope, and Specification sections based on the design discussion
 3. Write the Testing section with acceptance criteria
-4. For each planned section, use [[sk-spec-add_section]] to create sub-spec files
+4. For each planned section, use [[dev-sk-spec-add_section]] to create sub-spec files
 5. Write initial content for each section drawing from gathered context
 6. Once all files are created, progress to the next stage
 

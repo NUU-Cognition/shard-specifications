@@ -17,7 +17,7 @@ depends-on:
 children:
 uses-rfc2119: [true|false]
 [agent]-sessions:
-template: "[[tmp-spec-root-v0.1]]"
+template: "[[dev-tmp-spec-root-v0.1]]"
 authors: /* from .flint/identity.json; omit if no identity set */
   - "[[@Person Name]]"
 ---
