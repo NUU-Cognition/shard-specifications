@@ -1,11 +1,12 @@
 shard-spec: "0.3.0"
 id: 2ef6e8d3-94cc-48c5-9f10-9dd9d64ffa54
-version: "0.2.0"
+version: "0.2.1"
 name: Specifications
 shorthand: spec
 description: Create and manage detailed specifications as folder-based, versioned artifacts
 dependencies:
   - source: NUU-Cognition/shard-flint
+    version: "0.3.0"
 types:
   - name: Specification
     source: type-spec-specification.md
