@@ -12,7 +12,8 @@ tags:
 status: [draft|approved|implemented]
 parent: "[[(Spec) Parent Name]]"
 uses-rfc2119: [true|false]
-[agent]-sessions:
+orb:
+  - "[the output of flint address me]"
 template: "[[dev-tmp-spec-section-v0.1]]"
 authors: /* from .flint/identity.json; omit if no identity set */
   - "[[@Person Name]]"

@@ -16,7 +16,8 @@ tasks:
 depends-on:
 children:
 uses-rfc2119: [true|false]
-[agent]-sessions:
+orb:
+  - "[the output of flint address me]"
 template: "[[dev-tmp-spec-root-v0.1]]"
 authors: /* from .flint/identity.json; omit if no identity set */
   - "[[@Person Name]]"
